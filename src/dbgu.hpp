@@ -1,11 +1,12 @@
 #pragma once
-#include "constants.hpp"
 #include "pio.hpp"
+#include "util.hpp"
 #include <stdint.h>
 // AT91RM9200
 // 26.5 Debug Unit User Interface
 namespace dbgu {
-uint32_t constexpr BAUDRATE = MASTER_CLOCK / (16 * ::BAUDRATE);
+uint32_t constexpr MASTER_CLOCK = 49;
+uint32_t constexpr BAUDRATE = MASTER_CLOCK / (16 * 115200);
 uint32_t constexpr BASE = 0xfffff200;
 uint32_t constexpr CR = BASE + 0x0;
 uint32_t constexpr MR = BASE + 0x4;
@@ -66,7 +67,7 @@ inline void write_string(const char *str) {
 }
 
 // Hex version
-constexpr inline void write_hex(unsigned int value) {
+inline void write_hex(unsigned int value) {
   write('0');
   write('x');
   constexpr char hex_chars[] = "0123456789ABCDEF";
