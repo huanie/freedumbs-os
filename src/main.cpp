@@ -21,7 +21,7 @@ u: Undefined instruction
       __asm__ volatile("SWI #0");
       break;
     default:
-      continue;
+      dbgu::printf("You typed: %c\n", c);
     }
   }
 }
