@@ -1,7 +1,11 @@
+# Configure Toolchain
+```sh
+xmake f -p cross -a cross --sdk=$CROSS_TOOLCHAIN
+# or if the tools are just prefixed
+xmake f -p cross -a cross --cross=arm-none-eabi-
+```
 # Build
 ```sh
-# configure the toolchain
-xmake f -p cross -a cross --sdk=$CROSS_TOOLCHAIN
 xmake
 ```
 # Run
