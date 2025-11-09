@@ -15,10 +15,10 @@ u: Undefined instruction
       volatile_write(0xdeadbeef, 0x1337);
       break;
     case 'u':
-      __asm__ volatile("UDF #0");
+      __asm__ volatile(".word 0xE7F666F0");
       break;
     case 's':
-      __asm__ volatile("SVC #0");
+      __asm__ volatile("SWI #0");
       break;
     default:
       continue;
