@@ -20,7 +20,8 @@ constexpr inline uint32_t encode_load() {
   auto constexpr pc = target + 8;
   auto constexpr offset = destination - pc;
   static_assert(offset < 0xFFF, "The destination is out of bounds");
-
+  // the encoded load instruction
+  constexpr uint32_t LOAD_INSTRUCTION = 0xE59FF000;
   return 0xE59FF000 | offset;
 }
 
