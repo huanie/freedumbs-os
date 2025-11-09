@@ -92,6 +92,9 @@ inline void printf(const char *str) {
 
 template <typename T, typename... Args>
 inline void printf(const char *format, T value, Args... args) {
+  static_assert(is_char_type<T> || is_string_type<T> || is_void_ptr_type<T> ||
+		    is_unsigned_int_type<T>,
+		"Formatter is not supported");
   while (*format) {
     if (*format == '%') {
       auto formatter = format + 1;

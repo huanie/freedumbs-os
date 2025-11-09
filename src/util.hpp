@@ -19,7 +19,7 @@ constexpr bool is_string_type =
 
 template <typename T>
 constexpr bool is_unsigned_int_type =
-    __is_same(T, unsigned int) || __is_same(T, const unsigned int);
+    __is_same(T, unsigned int) || __is_same(T, uint32_t);
 
 template <typename T>
 constexpr bool is_void_ptr_type =

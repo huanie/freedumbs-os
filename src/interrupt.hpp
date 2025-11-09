@@ -3,7 +3,10 @@
 #include <stdint.h>
 
 namespace interrupt {
-constexpr uint32_t BASE = 0xFFFFF000;
-constexpr uint32_t INTERRUPT_VECTOR_REGISTER = 0x100;
-constexpr uint32_t JUMP = 0xe51ff004; // ldr     pc, [pc, #-4]
+// ARM.pdf page 160
+constexpr int32_t BRANCH_INSTRUCTION_OP_CODE = 0xEA000000;
+extern "C" void init_interrupts();
+void data_abort();
+void software();
+void undefined_instruction();
 } // namespace interrupt
