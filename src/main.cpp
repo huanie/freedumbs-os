@@ -1,5 +1,5 @@
 #include "./dbgu.hpp"
-#include "util.hpp"
+#include "./util.hpp"
 
 extern "C" __attribute__((section(".init"), noinline)) void main() {
   dbgu::init();
